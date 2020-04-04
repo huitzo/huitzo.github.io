@@ -1,1 +1,1 @@
-Lab Sistemas Complejas UPIITA IPN
+Lab Sistemas Complejos UPIITA IPN
