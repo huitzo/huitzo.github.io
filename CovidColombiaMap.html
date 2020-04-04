@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<title>COVID-19 Colombia</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" />
+	<link rel="stylesheet" href="leaflet-search-master\src\leaflet-search.css" />
+	<style> 
+  	body {
+	    	padding: 0%;
+	    	margin: 0;
+		}
+		html, body, #map {
+    		height: 98%;
+		}
+	</style> 
+	<style type="text/css">
+      .leaflet-control-attribution{
+        display: none;
+      }
+    </style>
+</head>  
+<body>
+	<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
+	<script src="leaflet-search-master\src\leaflet-search.js"></script>
+	<script src="covidgeojsoncol.js"></script>
+	<div id = "map" style="height: 100%"></div>
+ 
+<script>
+	var movil = false;
+      if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+           movil = true;
+        }
+	var map = L.map('map');
+	L.control.scale().addTo(map);
+	L.tileLayer('https://c.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',}).addTo(map);
+	L.Control.Watermark = L.Control.extend({
+	onAdd: function(map) {
+      var img = L.DomUtil.create('img');
+      img.src = 'csl_log.jpg';
+      img.style.width = '100px';
+      return img;
+	}
+	});
+	L.control.watermark = function(opts) {
+    return new L.Control.Watermark(opts);
+	}
+	L.control.watermark({ position: 'topright' }).addTo(map);
+	
+	var MarkerOptions = {
+					radius: 8,
+				    fillColor: "#ff7800",
+				    color: "#000",
+				    weight: 0.5,
+				    opacity: 1,
+				    fillOpacity: 0.5
+					};
+	function popup_markers(feature, layer) {
+		if (feature.properties && feature.properties.Departamento)
+		{
+		layer.bindPopup("<h5></div><hr><table><tr><td>Pais: "+feature.properties.country + "<h4>Departamento: "+ feature.properties.Departamento +
+		"<h4></div><hr><table><tr><td>Casos Confirmados: "+feature.properties.confirmado + "<h4>Procedencia Caso mas Reciente: "+ feature.properties.Procedencia,
+		{minWidth: 150, maxWidth: 200});				
+	}
+	}
+	function style_markers(feature) {
+					return{
+						radius: feature.properties.radio+4,
+						label: feature.properties.Departamento,
+						fillColor: '#FF0000', 
+			    		color: '#FF0000', 
+						weight: 0.5,
+						opacity : 1,
+						fillOpacity : 0.5
+					};
+				};
+	
+	var markers = L.geoJson(marker, {
+							pointToLayer: function (feature, latlng) {
+									return L.circleMarker(latlng, MarkerOptions);
+								},
+							style:style_markers,
+							onEachFeature: popup_markers	
+					});
+		map.addLayer(markers)
+		map.fitBounds(markers.getBounds());
+		
+		var searchControl = new L.Control.Search({
+       layer: markers,
+       propertyName:'Departamento',
+	   textPlaceholder:'Buscar un Departamento',
+	   textErr:'No se encontraron resultados, verifique escritura',
+	   collapsed:false,
+       circleLocation: false
+	});
+	searchControl.on('search_locationfound', function(e) {
+       e.layer.setStyle({fillColor: '#3f0', color: '#0f0'});
+	})
+	map.addControl(searchControl);
+	
+	var legend = L.control({position: 'topleft'});
+	legend.onAdd = function (map) {
+
+    var div = L.DomUtil.create('div', 'info legend'),
+        grades = [1161, 55, 19, 16968, 524],
+		color =['#8B0000', '#A0522D', '#6495ED', '#556B2F', '#E9967A'],
+        labels = ['Casos Confirmados', 'Casos Recuperados', 'Defunciones', 'Casos Descartados', 'Casos Importados'];
+		div.innerHTML += '<b>Datos Nacionales dia anterior </b><br>'
+    for (var i = 0; i < grades.length; i++) {
+        div.innerHTML +=labels[i]+': '+grades[i] +'<br>';
+    }
+    return div;
+	};
+
+	legend.addTo(map);
+	
+	var legend1 = L.control({position: 'topleft'});
+	legend1.onAdd = function (map) {
+
+    var div = L.DomUtil.create('div', 'info legend1'),
+        grades = [1267, 55, 25, 21202, 541],
+		color =['#8B0000', '#A0522D', '#6495ED', '#556B2F', '#E9967A'],
+        labels = ['Casos Confirmados', 'Casos Recuperados', 'Defunciones', 'Casos Descartados', 'Casos Importados'];
+		div.innerHTML += '<b>Situación Nacional Actual </b><br>'
+    for (var i = 0; i < grades.length; i++) {
+        div.innerHTML +=labels[i]+': '+grades[i] +'<br>';
+    }
+    return div;
+	};
+
+	legend1.addTo(map);
+	
+</script>
+ 
+</body>
+</html>
