@@ -22,7 +22,7 @@ var marker = {
         "Sexo": "F", 
         "Procedencia": "Colombia", 
         "Ciudad": "Sincelejo", 
-        "radio": 0.1, 
+        "radio": 0.06666666666666667, 
         "longitud": -75.1115
       }
     }, 
@@ -47,33 +47,8 @@ var marker = {
         "Sexo": "M", 
         "Procedencia": "Estados Unidos", 
         "Ciudad": "Riohacha", 
-        "radio": 0.1, 
+        "radio": 0.06666666666666667, 
         "longitud": -72.4299
-      }
-    }, 
-    {
-      "geometry": {
-        "type": "Point", 
-        "coordinates": [
-          -73.4862, 
-          6.69509
-        ]
-      }, 
-      "type": "Feature", 
-      "properties": {
-        "Edad": "25", 
-        "confirmado": 12.0, 
-        "latitud": 6.69509, 
-        "Tipo": "Relacionado", 
-        "fecha_diagnostico": "01/04/2020", 
-        "country": "Colombia", 
-        "Atencion": "Casa", 
-        "Departamento": "Santander", 
-        "Sexo": "M", 
-        "Procedencia": "Colombia", 
-        "Ciudad": "Floridablanca", 
-        "radio": 1.2, 
-        "longitud": -73.4862
       }
     }, 
     {
@@ -97,7 +72,7 @@ var marker = {
         "Sexo": "M", 
         "Procedencia": "Ecuador", 
         "Ciudad": "Cumbal", 
-        "radio": 0.6, 
+        "radio": 0.4, 
         "longitud": -77.8716
       }
     }, 
@@ -122,7 +97,7 @@ var marker = {
         "Sexo": "M", 
         "Procedencia": "Colombia", 
         "Ciudad": "San Andres", 
-        "radio": 0.2, 
+        "radio": 0.13333333333333333, 
         "longitud": -81.5654
       }
     }, 
@@ -147,7 +122,7 @@ var marker = {
         "Sexo": "M", 
         "Procedencia": "Colombia", 
         "Ciudad": "Magdalena", 
-        "radio": 1.2, 
+        "radio": 0.8, 
         "longitud": -74.2607
       }
     }, 
@@ -172,7 +147,7 @@ var marker = {
         "Sexo": "M", 
         "Procedencia": "Colombia", 
         "Ciudad": "Yopal", 
-        "radio": 0.2, 
+        "radio": 0.13333333333333333, 
         "longitud": -71.6015
       }
     }, 
@@ -197,33 +172,8 @@ var marker = {
         "Sexo": "M", 
         "Procedencia": "Colombia", 
         "Ciudad": "Valledupar", 
-        "radio": 1.6, 
+        "radio": 1.0666666666666667, 
         "longitud": -73.5178
-      }
-    }, 
-    {
-      "geometry": {
-        "type": "Point", 
-        "coordinates": [
-          -76.8336, 
-          2.39676
-        ]
-      }, 
-      "type": "Feature", 
-      "properties": {
-        "Edad": "32", 
-        "confirmado": 11.0, 
-        "latitud": 2.39676, 
-        "Tipo": "Relacionado", 
-        "fecha_diagnostico": "01/04/2020", 
-        "country": "Colombia", 
-        "Atencion": "Casa", 
-        "Departamento": "Cauca", 
-        "Sexo": "F", 
-        "Procedencia": "Colombia", 
-        "Ciudad": "Popayan", 
-        "radio": 1.1, 
-        "longitud": -76.8336
       }
     }, 
     {
@@ -247,7 +197,7 @@ var marker = {
         "Sexo": "F", 
         "Procedencia": "Estados Unidos", 
         "Ciudad": "Circasia", 
-        "radio": 2.3, 
+        "radio": 1.5333333333333334, 
         "longitud": -75.6897
       }
     }, 
@@ -272,7 +222,7 @@ var marker = {
         "Sexo": "F", 
         "Procedencia": "Espana", 
         "Ciudad": "Anserma", 
-        "radio": 1.6, 
+        "radio": 1.0666666666666667, 
         "longitud": -75.3057
       }
     }, 
@@ -297,7 +247,7 @@ var marker = {
         "Sexo": "M", 
         "Procedencia": "Colombia", 
         "Ciudad": "Pereira", 
-        "radio": 3.7, 
+        "radio": 2.466666666666667, 
         "longitud": -75.8422
       }
     }, 
@@ -322,58 +272,8 @@ var marker = {
         "Sexo": "F", 
         "Procedencia": "Estados Unidos", 
         "Ciudad": "Ibague", 
-        "radio": 1.5, 
+        "radio": 1.0, 
         "longitud": -75.2558
-      }
-    }, 
-    {
-      "geometry": {
-        "type": "Point", 
-        "coordinates": [
-          -72.9552, 
-          3.34766
-        ]
-      }, 
-      "type": "Feature", 
-      "properties": {
-        "Edad": "94", 
-        "confirmado": 13.0, 
-        "latitud": 3.34766, 
-        "Tipo": "Importado", 
-        "fecha_diagnostico": "03/04/2020", 
-        "country": "Colombia", 
-        "Atencion": "Hospital", 
-        "Departamento": "Meta", 
-        "Sexo": "F", 
-        "Procedencia": "Estados Unidos", 
-        "Ciudad": "Villavicencio", 
-        "radio": 1.3, 
-        "longitud": -72.9552
-      }
-    }, 
-    {
-      "geometry": {
-        "type": "Point", 
-        "coordinates": [
-          -74.5064, 
-          8.74375
-        ]
-      }, 
-      "type": "Feature", 
-      "properties": {
-        "Edad": "55", 
-        "confirmado": 45.0, 
-        "latitud": 8.74375, 
-        "Tipo": "En estudio", 
-        "fecha_diagnostico": "03/04/2020", 
-        "country": "Colombia", 
-        "Atencion": "Casa", 
-        "Departamento": "Bolivar", 
-        "Sexo": "M", 
-        "Procedencia": "Colombia", 
-        "Ciudad": "Cartagena", 
-        "radio": 4.5, 
-        "longitud": -74.5064
       }
     }, 
     {
@@ -397,33 +297,8 @@ var marker = {
         "Sexo": "M", 
         "Procedencia": "Colombia", 
         "Ciudad": "Cucuta", 
-        "radio": 2.5, 
+        "radio": 1.6666666666666667, 
         "longitud": -72.8805
-      }
-    }, 
-    {
-      "geometry": {
-        "type": "Point", 
-        "coordinates": [
-          -74.9649, 
-          10.675999999999998
-        ]
-      }, 
-      "type": "Feature", 
-      "properties": {
-        "Edad": "55", 
-        "confirmado": 43.0, 
-        "latitud": 10.675999999999998, 
-        "Tipo": "En estudio", 
-        "fecha_diagnostico": "03/04/2020", 
-        "country": "Colombia", 
-        "Atencion": "Casa", 
-        "Departamento": "Atlantico", 
-        "Sexo": "M", 
-        "Procedencia": "Colombia", 
-        "Ciudad": "Soledad", 
-        "radio": 4.3, 
-        "longitud": -74.9649
       }
     }, 
     {
@@ -447,33 +322,8 @@ var marker = {
         "Sexo": "M", 
         "Procedencia": "Colombia", 
         "Ciudad": "Monteria", 
-        "radio": 0.2, 
+        "radio": 0.13333333333333333, 
         "longitud": -75.7948
-      }
-    }, 
-    {
-      "geometry": {
-        "type": "Point", 
-        "coordinates": [
-          -75.571, 
-          6.92599
-        ]
-      }, 
-      "type": "Feature", 
-      "properties": {
-        "Edad": "53", 
-        "confirmado": 154.0, 
-        "latitud": 6.92599, 
-        "Tipo": "En estudio", 
-        "fecha_diagnostico": "04/04/2020", 
-        "country": "Colombia", 
-        "Atencion": "Casa", 
-        "Departamento": "Antioquia", 
-        "Sexo": "F", 
-        "Procedencia": "Colombia", 
-        "Ciudad": "La Estrella", 
-        "radio": 15.4, 
-        "longitud": -75.571
       }
     }, 
     {
@@ -497,7 +347,7 @@ var marker = {
         "Sexo": "M", 
         "Procedencia": "Colombia", 
         "Ciudad": "Togui", 
-        "radio": 1.3, 
+        "radio": 0.8666666666666667, 
         "longitud": -73.1002
       }
     }, 
@@ -522,8 +372,108 @@ var marker = {
         "Sexo": "M", 
         "Procedencia": "Colombia", 
         "Ciudad": "Neiva", 
-        "radio": 3.4, 
+        "radio": 2.2666666666666666, 
         "longitud": -75.5979
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          -72.9552, 
+          3.34766
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Edad": "37", 
+        "confirmado": 14.0, 
+        "latitud": 3.34766, 
+        "Tipo": "Relacionado", 
+        "fecha_diagnostico": "05/04/2020", 
+        "country": "Colombia", 
+        "Atencion": "Casa", 
+        "Departamento": "Meta", 
+        "Sexo": "M", 
+        "Procedencia": "Colombia", 
+        "Ciudad": "Acacias", 
+        "radio": 0.9333333333333333, 
+        "longitud": -72.9552
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          -73.4862, 
+          6.69509
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Edad": "65", 
+        "confirmado": 14.0, 
+        "latitud": 6.69509, 
+        "Tipo": "Relacionado", 
+        "fecha_diagnostico": "06/04/2020", 
+        "country": "Colombia", 
+        "Atencion": "Hospital UCI", 
+        "Departamento": "Santander", 
+        "Sexo": "M", 
+        "Procedencia": "Colombia", 
+        "Ciudad": "Floridablanca", 
+        "radio": 0.9333333333333333, 
+        "longitud": -73.4862
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          -74.9649, 
+          10.675999999999998
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Edad": "20", 
+        "confirmado": 48.0, 
+        "latitud": 10.675999999999998, 
+        "Tipo": "Relacionado", 
+        "fecha_diagnostico": "06/04/2020", 
+        "country": "Colombia", 
+        "Atencion": "Casa", 
+        "Departamento": "Atlantico", 
+        "Sexo": "M", 
+        "Procedencia": "Colombia", 
+        "Ciudad": "Barranquilla", 
+        "radio": 3.2, 
+        "longitud": -74.9649
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          -75.571, 
+          6.92599
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Edad": "91", 
+        "confirmado": 187.0, 
+        "latitud": 6.92599, 
+        "Tipo": "En estudio", 
+        "fecha_diagnostico": "06/04/2020", 
+        "country": "Colombia", 
+        "Atencion": "Fallecido", 
+        "Departamento": "Antioquia", 
+        "Sexo": "F", 
+        "Procedencia": "Colombia", 
+        "Ciudad": "Medellin", 
+        "radio": 12.466666666666667, 
+        "longitud": -75.571
       }
     }, 
     {
@@ -536,18 +486,18 @@ var marker = {
       }, 
       "type": "Feature", 
       "properties": {
-        "Edad": "36", 
-        "confirmado": 23.0, 
+        "Edad": "46", 
+        "confirmado": 27.0, 
         "latitud": 4.8238699999999985, 
-        "Tipo": "Relacionado", 
-        "fecha_diagnostico": "04/04/2020", 
+        "Tipo": "En estudio", 
+        "fecha_diagnostico": "06/04/2020", 
         "country": "Colombia", 
         "Atencion": "Casa", 
         "Departamento": "Cundinamarca", 
         "Sexo": "F", 
         "Procedencia": "Colombia", 
         "Ciudad": "Chia", 
-        "radio": 2.3, 
+        "radio": 1.8, 
         "longitud": -74.0978
       }
     }, 
@@ -561,18 +511,18 @@ var marker = {
       }, 
       "type": "Feature", 
       "properties": {
-        "Edad": "48", 
-        "confirmado": 721.0, 
+        "Edad": "66", 
+        "confirmado": 807.0, 
         "latitud": 4.31237, 
-        "Tipo": "Importado", 
-        "fecha_diagnostico": "04/04/2020", 
+        "Tipo": "En estudio", 
+        "fecha_diagnostico": "06/04/2020", 
         "country": "Colombia", 
         "Atencion": "Hospital", 
         "Departamento": "Bogota", 
-        "Sexo": "M", 
-        "Procedencia": "Canada", 
+        "Sexo": "F", 
+        "Procedencia": "Colombia", 
         "Ciudad": "Bogota", 
-        "radio": 72.1, 
+        "radio": 53.8, 
         "longitud": -74.1817
       }
     }, 
@@ -586,19 +536,69 @@ var marker = {
       }, 
       "type": "Feature", 
       "properties": {
-        "Edad": "45", 
-        "confirmado": 179.0, 
+        "Edad": "55", 
+        "confirmado": 209.0, 
         "latitud": 3.85854, 
-        "Tipo": "Relacionado", 
-        "fecha_diagnostico": "04/04/2020", 
+        "Tipo": "En estudio", 
+        "fecha_diagnostico": "06/04/2020", 
         "country": "Colombia", 
-        "Atencion": "Casa", 
+        "Atencion": "Hospital UCI", 
         "Departamento": "Valle del Cauca", 
-        "Sexo": "F", 
-        "Procedencia": "0", 
+        "Sexo": "M", 
+        "Procedencia": "Colombia", 
         "Ciudad": "Cali", 
-        "radio": 17.9, 
+        "radio": 13.933333333333334, 
         "longitud": -76.518
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          -76.8336, 
+          2.39676
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Edad": "3", 
+        "confirmado": 12.0, 
+        "latitud": 2.39676, 
+        "Tipo": "Relacionado", 
+        "fecha_diagnostico": "06/04/2020", 
+        "country": "Colombia", 
+        "Atencion": "Fallecido", 
+        "Departamento": "Cauca", 
+        "Sexo": "F", 
+        "Procedencia": "Colombia", 
+        "Ciudad": "Popayan", 
+        "radio": 0.8, 
+        "longitud": -76.8336
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          -74.5064, 
+          8.74375
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "Edad": "73", 
+        "confirmado": 56.0, 
+        "latitud": 8.74375, 
+        "Tipo": "En estudio", 
+        "fecha_diagnostico": "06/04/2020", 
+        "country": "Colombia", 
+        "Atencion": "Hospital UCI", 
+        "Departamento": "Bolivar", 
+        "Sexo": "M", 
+        "Procedencia": "Colombia", 
+        "Ciudad": "Cartagena", 
+        "radio": 3.7333333333333334, 
+        "longitud": -74.5064
       }
     }
   ]
