@@ -55,7 +55,7 @@
       if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
            movil = true;
         }
-	var map = L.map('map').setView([22.7684307, -102.5814133], 5);
+	var map = L.map('map');
 	L.control.scale().addTo(map);
 	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',}).addTo(map);
 	L.Control.Watermark = L.Control.extend({
@@ -80,7 +80,7 @@
 
     info.update = function(props) {
       this._div.innerHTML =
-        "<h4>COVID-19 en Mexico 06/04/2020</h4>" +
+        "<h4>COVID-19 en Mexico 10/04/2020</h4>" +
         (props
           ? "<b>" + " Estado: " +
             props.admin_name +
@@ -91,13 +91,13 @@
     info.addTo(map);
 
     function getColor(d) {
-    return d > 100 ? '#800026' :
-           d > 70  ? '#BD0026' :
-           d > 50  ? '#E31A1C' :
-           d > 30  ? '#FC4E2A' :
-           d > 20   ? '#FD8D3C' :
-           d > 10   ? '#FEB24C' :
-           d > 0   ? '#FED976' :
+    return d > 200 ? '#800026' :
+           d > 150  ? '#BD0026' :
+           d > 100  ? '#E31A1C' :
+           d > 50  ? '#FC4E2A' :
+           d > 30   ? '#FD8D3C' :
+           d > 20   ? '#FEB24C' :
+           d > 10   ? '#FED976' :
                       '#FFEDA0';
 	}
 
@@ -169,7 +169,7 @@
 	legend.onAdd = function (map) {
 
     var div = L.DomUtil.create('div', 'info legend'),
-        grades = [0, 10, 20, 30, 50, 70, 100];
+        grades = [10, 20, 30, 50, 100, 150, 200];
     for (var i = 0; i < grades.length; i++) {
         div.innerHTML +=
             '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
@@ -184,7 +184,7 @@
 	legend1.onAdd = function (map) {
 
     var div = L.DomUtil.create('div', 'info legend1'),
-        grades = [2439, 6295, 11741, 125, 20475],
+        grades = [3441, 10105, 17950, 194, 31496],
         labels = ['Confirmados', 'Sospechosos', 'Negativos', 'Defunciones', 'Total Pruebas Realizados'];
 		div.innerHTML += '<b>Datos Nacionales dia anterior </b><br>'
     for (var i = 0; i < grades.length; i++) {
@@ -200,7 +200,7 @@
 	legend2.onAdd = function (map) {
 
     var div = L.DomUtil.create('div', 'info legend2'),
-        grades = [2785, 7526, 15099, 141, 25410],
+        grades = [3844, 10300, 19749, 233, 33893],
         labels = ['Confirmados', 'Sospechosos', 'Negativos', 'Defunciones', 'Total Pruebas Realizados'];
 		div.innerHTML += '<b>Situacón Nacional Actual</b><br>'
     for (var i = 0; i < grades.length; i++) {
@@ -211,6 +211,7 @@
 	};
 
 	legend2.addTo(map);
+	map.fitBounds(geojson.getBounds());
 	
 </script>
  
