@@ -181,7 +181,7 @@
 	var legend1 = L.control({position: 'topleft'});
 	legend1.onAdd = function (map) {
     var div = L.DomUtil.create('div', 'info legend1'),
-        grades = [2776, 270, 109, 38989, 755],
+        grades = [2852, 319, 112, 43053, 4021],
         labels = ['Confirmados', 'Recuperados', 'Defunciones', 'Total Pruebas Realizados', 'Casos Importados'];
 		div.innerHTML += '<b>Datos Nacionales día Anterior</b><br>'
     for (var i = 0; i < grades.length; i++) {
@@ -195,8 +195,8 @@
 	var legend2 = L.control({position: 'topleft'});
 	legend2.onAdd = function (map) {
     var div = L.DomUtil.create('div', 'info legend2'),
-        grades = [2852, 319, 112, 43053, 4021],
-        labels = ['Confirmados', 'Recuperados', 'Defunciones', 'Total Pruebas Realizados', 'Muestras Negativos'];
+        grades = [2979, 354, 127],
+        labels = ['Confirmados', 'Recuperados', 'Defunciones'];
 		div.innerHTML += '<b>Situacón Nacional Actual</b><br>'
     for (var i = 0; i < grades.length; i++) {
         div.innerHTML +=labels[i] + ': ' +grades[i] +'<br>';
