@@ -80,7 +80,7 @@
 
     info.update = function(props) {
       this._div.innerHTML =
-        "<h4>COVID-19 en Mexico 14/04/2020</h4>" +
+        "<h4>COVID-19 en Mexico 15/04/2020</h4>" +
         (props
           ? "<b>" + " Estado: " +
             props.admin_name +
@@ -184,7 +184,7 @@
 	legend1.onAdd = function (map) {
 
     var div = L.DomUtil.create('div', 'info legend1'),
-        grades = [5014, 9341, 23040, 332, 40091],
+        grades = [5399, 10792, 23900, 406, 37395],
         labels = ['Confirmados', 'Sospechosos', 'Negativos', 'Defunciones', 'Total Pruebas Realizados'];
 		div.innerHTML += '<b>Datos Nacionales dia anterior </b><br>'
     for (var i = 0; i < grades.length; i++) {
@@ -200,7 +200,7 @@
 	legend2.onAdd = function (map) {
 
     var div = L.DomUtil.create('div', 'info legend2'),
-        grades = [5399, 10792, 23900, 406, 37395],
+        grades = [5847, 11717, 25138, 449, 42702],
         labels = ['Confirmados', 'Sospechosos', 'Negativos', 'Defunciones', 'Total Pruebas Realizados'];
 		div.innerHTML += '<b>Situacón Nacional Actual</b><br>'
     for (var i = 0; i < grades.length; i++) {
