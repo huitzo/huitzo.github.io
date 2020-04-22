@@ -80,7 +80,7 @@
 
     info.update = function(props) {
       this._div.innerHTML =
-        "<h4>COVID-19 en Colombia 16/04/2020</h4>" +
+        "<h4>COVID-19 en Colombia 21/04/2020</h4>" +
         (props
           ? "<b>" + " Departamento: " +
             props.departamento +
@@ -178,24 +178,10 @@
 	};
 	legend.addTo(map);
 	
-	var legend1 = L.control({position: 'topleft'});
-	legend1.onAdd = function (map) {
-    var div = L.DomUtil.create('div', 'info legend1'),
-        grades = [3105, 452, 131],
-        labels = ['Confirmados', 'Recuperados', 'Defunciones'];
-		div.innerHTML += '<b>Datos Nacionales día Anterior</b><br>'
-    for (var i = 0; i < grades.length; i++) {
-        div.innerHTML +=labels[i] + ': ' +grades[i] +'<br>';
-    }
-    return div;
-	};
-
-	legend1.addTo(map);
-	
-	var legend2 = L.control({position: 'topleft'});
-	legend2.onAdd = function (map) {
-    var div = L.DomUtil.create('div', 'info legend2'),
-        grades = [3233, 550, 144],
+	var legend = L.control({position: 'topleft'});
+	legend.onAdd = function (map) {
+    var div = L.DomUtil.create('div', 'info legend'),
+        grades = [4119, 804, 196],
         labels = ['Confirmados', 'Recuperados', 'Defunciones'];
 		div.innerHTML += '<b>Situacón Nacional Actual</b><br>'
     for (var i = 0; i < grades.length; i++) {
@@ -203,7 +189,7 @@
     }
     return div;
 	};
-	legend2.addTo(map);
+	legend.addTo(map);
 	map.fitBounds(geojson.getBounds());
 </script>
  
