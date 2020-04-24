@@ -57,7 +57,7 @@
         }
 	var map = L.map('map');
 	L.control.scale().addTo(map);
-	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',}).addTo(map);
+	L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>', subdomains: 'abcd'}).addTo(map);
 	L.Control.Watermark = L.Control.extend({
 	onAdd: function(map) {
       var img = L.DomUtil.create('img');
@@ -80,7 +80,7 @@
 
     info.update = function(props) {
       this._div.innerHTML =
-        "<h4>COVID-19 en Colombia 22/04/2020</h4>" +
+        "<h4>COVID-19 en Colombia 23/04/2020</h4>" +
         (props
           ? "<b>" + " Departamento: " +
             props.departamento +
@@ -116,9 +116,9 @@
       var layer = e.target;
 
       layer.setStyle({
-        weight: 5,
+        weight: 1,
         color: "#FF0000",
-        dashArray: "",
+        dashArray: "3",
         fillOpacity: 0.7
       });
 
@@ -181,7 +181,7 @@
 		var legend = L.control({position: 'topleft'});
 	legend.onAdd = function (map) {
     var div = L.DomUtil.create('div', 'info legend'),
-        grades = [4119, 804, 196],
+        grades = [4356, 870, 206],
         labels = ['Confirmados', 'Recuperados', 'Defunciones'];
 		div.innerHTML += '<b>Situacón Nacional Actual</b><br>'
     for (var i = 0; i < grades.length; i++) {
@@ -194,7 +194,7 @@
 	var legend = L.control({position: 'topleft'});
 	legend.onAdd = function (map) {
     var div = L.DomUtil.create('div', 'info legend'),
-        grades = [4356, 870, 206],
+        grades = [4561, 927, 215],
         labels = ['Confirmados', 'Recuperados', 'Defunciones'];
 		div.innerHTML += '<b>Situacón Nacional Actual</b><br>'
     for (var i = 0; i < grades.length; i++) {
