@@ -80,7 +80,7 @@
 
     info.update = function(props) {
       this._div.innerHTML =
-        "<h4>COVID-19 en Colombia 24/04/2020</h4>" +
+        "<h4>COVID-19 en Colombia 25/04/2020</h4>" +
         (props
           ? "<b>" + " Departamento: " +
             props.departamento +
@@ -181,9 +181,9 @@
 		var legend = L.control({position: 'topleft'});
 	legend.onAdd = function (map) {
     var div = L.DomUtil.create('div', 'info legend'),
-        grades = [4561, 927, 215],
+        grades = [4881, 1003, 225],
         labels = ['Confirmados', 'Recuperados', 'Defunciones'];
-		div.innerHTML += '<b>Situacón Nacional Actual</b><br>'
+		div.innerHTML += '<b>Situacón Nacional Anterior</b><br>'
     for (var i = 0; i < grades.length; i++) {
         div.innerHTML +=labels[i] + ': ' +grades[i] +'<br>';
     }
@@ -194,7 +194,7 @@
 	var legend = L.control({position: 'topleft'});
 	legend.onAdd = function (map) {
     var div = L.DomUtil.create('div', 'info legend'),
-        grades = [4881, 1003, 225],
+        grades = [5142, 1067, 233],
         labels = ['Confirmados', 'Recuperados', 'Defunciones'];
 		div.innerHTML += '<b>Situacón Nacional Actual</b><br>'
     for (var i = 0; i < grades.length; i++) {
