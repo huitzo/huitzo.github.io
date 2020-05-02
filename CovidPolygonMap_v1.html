@@ -186,8 +186,8 @@
 	legend1.onAdd = function (map) {
 
     var div = L.DomUtil.create('div', 'info legend1'),
-        grades = [17799, 7014, 1732],
-        labels = ['Confirmados Acumulados', 'Confirmados Activos', 'Defunciones'];
+        grades = [19224, 15520, 1859],
+        labels = ['Confirmados Acumulados', 'Sospechosos', 'Defunciones'];
 		div.innerHTML += '<b>Datos Nacionales dia Anterior</b><br>'
     for (var i = 0; i < grades.length; i++) {
         div.innerHTML +=labels[i] + ': ' +grades[i] +'<br>';
@@ -202,8 +202,8 @@
 	legend2.onAdd = function (map) {
 
     var div = L.DomUtil.create('div', 'info legend2'),
-        grades = [19224, 15520, 1859],
-        labels = ['Confirmados Acumulados', 'Sospechosos', 'Defunciones'];
+        grades = [20739, 6390, 1972],
+        labels = ['Confirmados Acumulados', 'Confirmados Activos', 'Defunciones'];
 		div.innerHTML += '<b>Datos Nacionales Actuales</b><br>'
     for (var i = 0; i < grades.length; i++) {
         div.innerHTML +=labels[i] + ': ' +grades[i] +'<br>';
