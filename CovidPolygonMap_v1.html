@@ -118,10 +118,11 @@
       var layer = e.target;
 
       layer.setStyle({
-        weight: 5,
+        weight: 1,
         color: "#FF0000",
         dashArray: "",
-        fillOpacity: 0.7
+		fillColor: "#00FFFF",
+        fillOpacity: 0.5
       });
 
       if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
@@ -186,7 +187,7 @@
 	legend1.onAdd = function (map) {
 
     var div = L.DomUtil.create('div', 'info legend1'),
-        grades = [29616, 7802, 2961],
+        grades = [31522, 8048, 3160],
         labels = ['Confirmados Acumulados', 'Sospechosos', 'Defunciones'];
 		div.innerHTML += '<b>Datos Nacionales dia Anterior</b><br>'
     for (var i = 0; i < grades.length; i++) {
@@ -202,7 +203,7 @@
 	legend2.onAdd = function (map) {
 
     var div = L.DomUtil.create('div', 'info legend2'),
-        grades = [31522, 8048, 3160],
+        grades = [33460, 8283, 3353],
         labels = ['Confirmados Acumulados', 'Confirmados Activos', 'Defunciones'];
 		div.innerHTML += '<b>Datos Nacionales Actuales</b><br>'
     for (var i = 0; i < grades.length; i++) {
