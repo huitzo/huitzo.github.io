@@ -48,6 +48,8 @@
 	<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
 	<script src="leaflet-search-master\src\leaflet-search.js"></script>
 	<script src="covidgeojsoncol.js"></script>
+	<script src="todaycol.js"></script>
+	<script src="yesterdaycol.js"></script>
 	<div id = "map" style="height: 100%"></div>
  
 <script>
@@ -86,7 +88,9 @@
         (props
           ? "<b>" + " Departamento: " +
             props.departamento +
-            "</b><br />" + "Casos Confirmados: "+ props.confirmado
+            "</br>" + "Casos Confirmados: "+ props.confirmado+
+			"</br>" + "Casos Recuperados: "+ props.recuperados +
+			"</br>" + "Total Defunciones: "+ props.defunciones
           : "Desplacese sobre un Departamento");
     };
 
@@ -179,12 +183,13 @@
     }
     return div;
 	};
+	
 	legend.addTo(map);
 	
 		var legend = L.control({position: 'topleft'});
 	legend.onAdd = function (map) {
     var div = L.DomUtil.create('div', 'info legend'),
-        grades = [10495, 2569, 445],
+        grades = yesterday,
         labels = ['Confirmados Acumulados', 'Recuperados', 'Defunciones'];
 		div.innerHTML += '<b>Datos Nacionales día Anterior</b><br>'
     for (var i = 0; i < grades.length; i++) {
@@ -197,7 +202,7 @@
 	var legend = L.control({position: 'topleft'});
 	legend.onAdd = function (map) {
     var div = L.DomUtil.create('div', 'info legend'),
-        grades = [11063, 270, 463],
+        grades = today,
         labels = ['Confirmados Acumulados', 'Recuperados', 'Defunciones'];
 		div.innerHTML += '<b>Datos Nacionales Actuales</b><br>'
     for (var i = 0; i < grades.length; i++) {
