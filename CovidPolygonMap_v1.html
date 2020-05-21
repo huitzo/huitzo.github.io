@@ -162,8 +162,9 @@
        propertyName:'admin_name',
 	   textPlaceholder:'Buscar un Estado',
 	   textErr:'No se encontraron resultados, verifique escritura',
+	   textCancel:'Borrar',
 	   collapsed:false,
-       circleLocation: false
+	   firstTipSubmit: true
 	});
 	searchControl.on('search_locationfound', function(e) {
        e.layer.setStyle({fillColor: '#3f0', color: '#0f0'});
@@ -185,31 +186,19 @@
 	};
 
 	legend.addTo(map);
-	var legend1 = L.control({position: 'topleft'});
-	legend1.onAdd = function (map) {
-
-    var div = L.DomUtil.create('div', 'info legend1'),
-        grades = yesterday,
-        labels = ['Confirmados Acumulados', 'Defunciones'];
-		div.innerHTML += '<b>Datos Nacionales dia Anterior</b><br>'
-    for (var i = 0; i < grades.length; i++) {
-        div.innerHTML +=labels[i] + ': ' +grades[i] +'<br>';
-    }
-
-    return div;
-	};
-
-	legend1.addTo(map);
 	
 	var legend2 = L.control({position: 'topleft'});
 	legend2.onAdd = function (map) {
 
     var div = L.DomUtil.create('div', 'info legend2'),
         grades = today,
-        labels = ['Confirmados Acumulados', 'Defunciones'];
+		gradesaux = yesterday,
+        labels = ['Confirmados Acumulados', 'Defunciones Acumuladas'],
+		labelsaux = ['Número Nuevos Casos', 'Número Nuevas Muertes'];
 		div.innerHTML += '<b>Datos Nacionales Actuales</b><br>'
     for (var i = 0; i < grades.length; i++) {
-        div.innerHTML +=labels[i] + ': ' +grades[i] +'<br>';
+        div.innerHTML +=labels[i] + ': ' +grades[i] +'<br>'+
+		labelsaux[i] + ': ' +(grades[i] - gradesaux[i]) +'<br>';
     }
 
     return div;

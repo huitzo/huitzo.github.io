@@ -164,8 +164,9 @@
        propertyName:'departamento',
 	   textPlaceholder:'Buscar un Departamento',
 	   textErr:'No se encontraron resultados, verifique escritura',
+	   textCancel:'Borrar',
 	   collapsed:false,
-       circleLocation: false
+	   firstTipSubmit: true
 	});
 	searchControl.on('search_locationfound', function(e) {
        e.layer.setStyle({fillColor: '#3f0', color: '#0f0'});
@@ -186,31 +187,22 @@
 	
 	legend.addTo(map);
 	
-		var legend = L.control({position: 'topleft'});
-	legend.onAdd = function (map) {
-    var div = L.DomUtil.create('div', 'info legend'),
-        grades = yesterday,
-        labels = ['Confirmados Acumulados', 'Recuperados', 'Defunciones'];
-		div.innerHTML += '<b>Datos Nacionales día Anterior</b><br>'
-    for (var i = 0; i < grades.length; i++) {
-        div.innerHTML +=labels[i] + ': ' +grades[i] +'<br>';
-    }
-    return div;
-	};
-	legend.addTo(map);
+	var legend1 = L.control({position: 'topleft'});
+	legend1.onAdd = function (map) {
 	
-	var legend = L.control({position: 'topleft'});
-	legend.onAdd = function (map) {
-    var div = L.DomUtil.create('div', 'info legend'),
+    var div = L.DomUtil.create('div', 'info legend1'),
         grades = today,
-        labels = ['Confirmados Acumulados', 'Recuperados', 'Defunciones'];
+		gradesaux = yesterday,
+        labels = ['Confirmados Acumulados', 'Recuperados Acumulados', 'Defunciones Acumuladas'],
+		labelsaux = ['Número Nuevos Casos', 'Número Nuevos Recuperados', 'Número Nuevas Defunciones'];
 		div.innerHTML += '<b>Datos Nacionales Actuales</b><br>'
     for (var i = 0; i < grades.length; i++) {
-        div.innerHTML +=labels[i] + ': ' +grades[i] +'<br>';
+        div.innerHTML +=labels[i] + ': ' +grades[i] +'<br>'+
+		labelsaux[i] + ': ' +(grades[i]-gradesaux[i]) +'<br>';
     }
     return div;
 	};
-	legend.addTo(map);
+	legend1.addTo(map);
 	map.fitBounds(geojson.getBounds());
 </script>
  
