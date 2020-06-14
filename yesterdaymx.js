@@ -1,1 +1,1 @@
-var yesterday = [133974.0, 15944.0]
+var yesterday = [139196.0, 16448.0]
