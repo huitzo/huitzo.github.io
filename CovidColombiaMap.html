@@ -90,7 +90,8 @@
             props.departamento +
             "</br>" + "Casos Confirmados: "+ props.confirmado+
 			"</br>" + "Casos Recuperados: "+ props.recuperados +
-			"</br>" + "Total Defunciones: "+ props.defunciones
+			"</br>" + "Total Defunciones: "+ props.defunciones+
+			"</br>" + "Casos Activos: "+ props.activos
           : "Desplacese sobre un Departamento");
     };
 
@@ -193,8 +194,8 @@
     var div = L.DomUtil.create('div', 'info legend1'),
         grades = today,
 		gradesaux = yesterday,
-        labels = ['Confirmados Acumulados', 'Recuperados Acumulados', 'Defunciones Acumuladas'],
-		labelsaux = ['Número Nuevos Casos', 'Número Nuevos Recuperados', 'Número Nuevas Defunciones'];
+        labels = ['Confirmados Acumulados', 'Recuperados Acumulados', 'Defunciones Acumuladas','Casos Activos'],
+		labelsaux = ['Número Nuevos Casos', 'Número Nuevos Recuperados', 'Número Nuevas Defunciones','Casos Activos Ayer'];
 		div.innerHTML += '<b>Datos Nacionales Actuales</b><br>'
     for (var i = 0; i < grades.length; i++) {
         div.innerHTML +=labels[i] + ': ' +grades[i] +'<br>'+
