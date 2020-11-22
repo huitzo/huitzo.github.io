@@ -95,13 +95,13 @@
     info.addTo(map);
 
     function getColor(d) {
-    return d > 10000 ? '#800026' :
-           d > 7500  ? '#BD0026' :
-           d > 5000  ? '#E31A1C' :
-           d > 3000  ? '#FC4E2A' :
-           d > 1000   ? '#FD8D3C' :
-           d > 500   ? '#FEB24C' :
-           d > 200   ? '#FED976' :
+    return d > 45000 ? '#800026' :
+           d > 30000  ? '#BD0026' :
+           d > 25000  ? '#E31A1C' :
+           d > 15000  ? '#FC4E2A' :
+           d > 10000   ? '#FD8D3C' :
+           d > 6000   ? '#FEB24C' :
+           d > 4000   ? '#FED976' :
                       '#FFEDA0';
 	}
 
@@ -175,7 +175,7 @@
 	legend.onAdd = function (map) {
 
     var div = L.DomUtil.create('div', 'info legend'),
-        grades = [200, 500, 1000, 3000, 5000, 7500, 10000];
+        grades = [4000, 6000, 10000, 15000, 25000, 30000, 40000];
     for (var i = 0; i < grades.length; i++) {
         div.innerHTML +=
             '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
