@@ -1,1 +1,144 @@
+"""
+Citing this work:
+   
+Guzmán-Vargas, L., Zabaleta-Ortega, A. & Guzmán-Sáenz, A. Simplicial complex entropy for time series analysis. Sci Rep 13, 22696 (2023). https://doi.org/10.1038/s41598-023-49958-6
 
+"""
+# This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY
+#
+#-------------------------------------------------------------------------------------------
+
+# Usage:
+#
+#  $ python3 scae_1.py FileName
+import math
+import numpy as np
+import pandas as pd
+import gudhi
+import matplotlib.pyplot as plt
+import sys
+FileName = str(sys.argv[1])
+#########################################################################################################################################################
+def math_com(N, k):
+    """
+    This function computes the combinations C(N,k)=N!/(k!(N-k)!)
+    """
+    return math.comb(N, k)
+#########################################################################################################################################################
+def vr_complex(points, max_dim, epsilon):
+    """
+    This function computes Vietoris-Rips Simplicial Complex of a point cloud.
+    --> points: array-like of shape (N,m) with the point cloud embedded in a m-dimensional space.
+    --> max_dim: maxumun dimenson of simplicial complex.
+    --> epsilon: maximum distance to which an edge is created in the simplicial complex.
+    <-- return: a gudhi generator skeleton containing the tuples ([v_1, v_2...], birth) where v_i are vertices of each simplex of dimension i-1.
+    """
+    rips_complex = gudhi.RipsComplex(points=points, max_edge_length=epsilon)
+    simplex_tree = rips_complex.create_simplex_tree(max_dimension=max_dim)
+    skeleton = simplex_tree.get_skeleton(max_dim)
+    return skeleton
+#########################################################################################################################################################
+def simplex_number(skeleton):
+    """
+    This function computes the number of simplexes for each dimension.
+    --> skeleton: a gudhi generator skeleton containing the tuples ([v_1, v_2...], birth) where v_i are vertices of each simplex of dimension i-1.
+    <-- return: a dictionary with the number of the simplices for each dimension in the simplicial complex.
+    """
+    simplexes_counter = {dim:0 for dim in range(max_dim+1)}
+    for simplex, _ in skeleton:
+        simplexes_counter[len(simplex)-1] += 1
+    return simplexes_counter
+#########################################################################################################################################################
+def simplicial_ratio(simplexes_counter, N):
+    """
+    This function, for each given dimension, computes the ratio between simplexes formed in a simplicial complex and all the possible simplexes that
+        could be formed in the point cloud.
+    --> simplexes_counter: a dictionary containing the number of simplexes formed in the simplicial complex for each dimension.
+    --> N: number of points in the point cloud over the simplicial complex is formed with.
+    <-- return: a dictionary with the ratio of the simplexes formed in the simplicial complex respecto to the all possible simplexes that could be formed 
+        for each dimension.
+    """
+    ratios = {}
+    for dim in simplexes_counter:
+        tks = math_com(N, dim+1)
+        ratios[dim] = simplexes_counter[dim]/tks
+    return ratios
+#########################################################################################################################################################
+def scae(ratios):
+    """
+    This function, for each given dimension, computes the simplicial complex aproximate entropy.
+    --> ratios: a dictionary containing the ratios of simplexes formed in the simplicial complex for each dimension.
+    <-- return: the simplicial complex aproximate entropy value.
+    """
+    
+    if  ratios[1]>0:
+        s = -np.log(ratios[2]/ratios[1])
+    else:
+        s = np.nan
+    return s
+
+#########################################################################################################################################################
+
+"""     Computing SCAE_1 for univariate time series loading data in .csv format    """
+
+#########################################################################################################################################################
+
+def scae_1_from_csv(path):
+    """
+    This function computes the simplicial complex aproximate entropy 1 loading data from a (one colum) .dat, .txt or csv file.
+    --> path: the csv file location in your pc.
+    <-- return: the simplicial complex aproximate entropy value.
+    """
+    if path[-4:]==".dat" or path[-4:]==".txt":
+        data = np.loadtxt(path)
+        data = data/np.std(data)
+        points = data.T
+    else:
+        data = pd.read_csv(path)
+        data.dropna(inplace=True)
+        data = data/np.std(data)
+        points = np.array([data]).T
+    point_cloud = np.array([points[:-1], points[1:]]).T
+    N = point_cloud.shape[0]
+    skeleton = vr_complex(point_cloud, max_dim, epsilon_max)
+    simplexes_counter = simplex_number(skeleton)
+    ratios = simplicial_ratio(simplexes_counter, N)
+    scae_1 = scae(ratios)
+    return N, scae_1
+
+#########################################################################################################################################################
+
+"""     Computing Cross_SCAE_1 for bivariate time series loading data in .csv format    """
+
+#########################################################################################################################################################
+
+def cross_scae_1_from_csv(path):
+    """
+    This function computes the Cross simplicial complex aproximate entropy 1 loading data from a (two colums) .dat, .txt or csv file.
+    --> path: the csv file location in your pc with bivariate data.
+    <-- return: the simplicial complex aproximate entropy value.
+    """
+    if path[-4:]==".dat" or path[-4:]==".txt":
+        data = np.loadtxt(path)
+        points = data.T
+    else:
+        data = pd.read_csv(path)
+        data.dropna(inplace=True)
+        points = np.array([data]).T
+    point_cloud = np.array([points[:,0]/np.std(points[:,0]), points[:,1]/np.std(points[:,1])]).T
+    N = point_cloud.shape[0]
+    skeleton = vr_complex(point_cloud, max_dim, epsilon_max)
+    simplexes_counter = simplex_number(skeleton)
+    ratios = simplicial_ratio(simplexes_counter, N)
+    cross_scae_1 = scae(ratios)
+    return cross_scae_1
+#########################################################################################################################################################
+#Parameters:
+#########################################################################################################################################################
+# Make sure that the standard deviation of the input signal is equal to 1 (i.e normalized by the std). N is the time series length
+max_dim = 2 # maximum dimension considered in the simplicial complex.
+epsilon_max = 0.1 # maximum radius to connect two points in the point cloud.
+k=max_dim-1  
+N,sc1=scae_1_from_csv(FileName)
+print("N k epsilon SCAE_1")
+print(N,k,epsilon_max,sc1)
